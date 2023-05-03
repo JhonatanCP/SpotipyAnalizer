@@ -15,4 +15,9 @@ tracksData = pd.DataFrame(tracks)
 print(tracksData)
 
 features = fn.getAudioFeatures(sp, tracksData["Id Track"].tolist())
-print(len(features))
+featuresData = pd.DataFrame(features)
+featuresData = featuresData.drop(['type','id','uri','track_href','analysis_url','duration_ms'],axis=1)
+
+playListData = pd.concat([tracksData,featuresData],axis=1)
+
+print(playListData)
