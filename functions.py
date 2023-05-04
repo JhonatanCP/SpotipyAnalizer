@@ -42,13 +42,6 @@ def getTracksData(playlist_tracks):
         durationMs = track["track"]["duration_ms"]
         popularity = track["track"]["popularity"]
 
-        # audio_features.pop('type')
-        # audio_features.pop('id')
-        # audio_features.pop('uri')
-        # audio_features.pop('track_href')
-        # audio_features.pop('analysis_url')
-        # audio_features.pop('duration_ms')
-
         tracks.append(
             {
                 "Id Track": idTrack,

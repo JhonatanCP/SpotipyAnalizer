@@ -19,5 +19,7 @@ featuresData = pd.DataFrame(features)
 featuresData = featuresData.drop(['type','id','uri','track_href','analysis_url','duration_ms'],axis=1)
 
 playListData = pd.concat([tracksData,featuresData],axis=1)
+stadisticData = playListData.describe()
 
 print(playListData)
+print(stadisticData)
