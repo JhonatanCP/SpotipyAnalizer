@@ -21,5 +21,16 @@ featuresData = featuresData.drop(['type','id','uri','track_href','analysis_url',
 playListData = pd.concat([tracksData,featuresData],axis=1)
 stadisticData = playListData.describe()
 
+playListData.to_excel("playlistdata.xlsx", index=False)
 print(playListData)
 print(stadisticData)
+
+with open('canciones.txt', 'w',encoding="utf-8") as f:
+    # Iterar sobre cada fila del dataframe
+    for index, row in playListData.iterrows():
+        # Obtener el nombre de la canción y el nombre del artista
+        song_name = row['Track Name']
+        artist_name = row['Artist Name']
+        
+        # Escribir el nombre de la canción y el nombre del artista en el archivo de texto plano
+        f.write(f'{song_name} - {artist_name}\n')
